@@ -1,0 +1,96 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+## Team Member
+Angelina DeLorenzo
+
+## Introduction
+Most people like to use Netflix to watch shows and most adults like to supervise what their kids watch and give their opinion about it. But how does one find shows they like?
+1.)Which movie has the oldest date and highest rating description and
+(Sex,Love,and Therapy &Honey Trap)
+
+2.)What is the coorlation between  user rating score and user rating size
+
+
+3.)What is rating level  and rating are shown most often 
+a.)"Ur" is the rating shown most often and "violence and menacing action, rude humor, suggestive content and thematic elements" is the rating level shown the most.
+
+3b.)Which rating level and rating are shown the least
+
+b.)
+
+```{r}
+library(tidyverse)
+myurL <- "https://raw.githubusercontent.com/reisanar/datasets/master/netflixShows.csv"
+mydata<-read.csv(myurL)
+```
+This reads the code and tell it to open the tidyverse package, read the link, and create a data frame for the code
+```{r}
+ggplot(data=mydata)+
+  geom_point(mapping = aes(x=ratingDescription,y=release.year,color="red"))
+```
+This graph show the relationship between when it was released and the description of it
+```{r}
+ggplot(data=df2)+
+  geom_point(mapping = aes(x=user.rating.score,y=ratingDescription),color="coral")
+```
+
+```{r}
+df<-data.frame(mydata)
+mydata[is.na(mydata)]=0
+```
+this creates a data frame
+```{r}
+rating2<-print(max(df$ratingDescription))
+df%>%filter(ratingDescription==124)
+
+```
+```{r}
+filter(df,ratingDescription==124 & release.year==2014)
+```
+So the answer to number 1 is the 2 movies shown in the database
+```{r}
+print(max(df$title))
+print(min(df$title))
+print(max(df$rating))
+print(min(df$rating))
+print(max(df$ratingLevel))
+print(min(df$ratingLevel))
+print(max(df$ratingDescription))
+print(min(df$ratingDescription))
+print(max(df$release.year))
+print(min(df$release.year))
+print(max(mydata$user.rating.score))
+print(min(mydata$user.rating.score))
+print(max(df$user.rating.size))
+print(min(df$user.rating.size))
+```           
+                           
+```{r}
+ggplot(data = mydata, aes(x=release.year,y=ratingDescription))+geom_bar(stat = "identity",color="black",fill="aquamarine")
+
+```
+```{r}
+ggplot(data = mydata, aes(x=rating,y=user.rating.size))+geom_bar(stat = "identity",color="aquamarine",fill="aquamarine")
+```
+```{r}
+df%>%filter(ratingDescription==70)
+```
+```{r}
+MYTOP[order(MYTOP$mydata.release.year,decreasing=TRUE),]
+```
+```{r}
+x<-data.frame(mydata%>%count(mydata$rating,sort = TRUE))
+print(x)
+
+```
+```{r}
+barplot(table(mydata$release.year),
+main="Number of relased movies",
+xlab="Release Year",
+ylab="Count",
+border="red",
+col="blue",)
+
+```
