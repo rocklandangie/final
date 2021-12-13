@@ -24,7 +24,10 @@ b.)
 library(tidyverse)
 myurL <- "https://raw.githubusercontent.com/reisanar/datasets/master/netflixShows.csv"
 mydata<-read.csv(myurL)
+<<<<<<< HEAD
 mydata[is.na(mydata)]=0
+=======
+>>>>>>> 6a766cd3f62a970cf4a980478b6c0649a1b0fe48
 ```
 This reads the code and tell it to open the tidyverse package, read the link, and create a data frame for the code
 ```{r}
@@ -79,8 +82,11 @@ ggplot(data = mydata, aes(x=rating,y=user.rating.size))+geom_bar(stat = "identit
 df%>%filter(ratingDescription==70)
 ```
 ```{r}
+<<<<<<< HEAD
 mytop<-data.frame(mydata%>%count(mydata$release.year,sort = TRUE))
 MYTOP<-mytop[order(mytop$mydata.release.year,decreasing = TRUE),]
+=======
+>>>>>>> 6a766cd3f62a970cf4a980478b6c0649a1b0fe48
 MYTOP[order(MYTOP$mydata.release.year,decreasing=TRUE),]
 ```
 ```{r}
